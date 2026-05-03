@@ -1,4 +1,4 @@
-# 🛡️ hackathon1: GearGuard Industrial Audit Engine
+# 🛡️ hacktahon1: GearGuard Industrial Audit Engine
 
 **GearGuard** is a high-precision, safety-critical hardware schematic audit engine designed for industrial control systems. It leverages multimodal AI to perform deep-pixel forensic scanning of hardware designs, ensuring compliance with international safety standards (like IEC 61131-3) and identifying critical failure points before they reach production.
 
@@ -39,8 +39,8 @@ hack/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/hackathon1.git
-cd hackathon1
+git clone https://github.com/Gopinanagare/hacktahon1.git
+cd hacktahon1
 ```
 
 ### 2. Setup Backend
