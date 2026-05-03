@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-primary": "#795900",
+                    "background": "#131313",
+                    "surface-variant": "#353534",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed": "#e5e2e1",
+                    "outline": "#9c8f78",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "secondary-container": "#474746",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#474746",
+                    "error": "#ffb4ab",
+                    "secondary": "#c8c6c5",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#5c4300",
+                    "primary-fixed-dim": "#fbbc00",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "surface-container": "#201f1f",
+                    "primary": "#ffe2ab",
+                    "outline-variant": "#504532",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#393939",
+                    "primary-container": "#ffbf00",
+                    "surface-tint": "#fbbc00",
+                    "on-tertiary": "#00390a",
+                    "on-tertiary-fixed": "#002204",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-fixed-dim": "#78dc77",
+                    "tertiary-fixed": "#94f990",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#b7b5b4",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary": "#303030",
+                    "surface-container-highest": "#353534",
+                    "on-primary": "#402d00",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary": "#96fc93",
+                    "on-tertiary-container": "#006218",
+                    "on-error": "#690005",
+                    "primary-fixed": "#ffdfa0",
+                    "on-primary-fixed": "#261a00",
+                    "surface": "#131313",
+                    "tertiary-container": "#7bdf79",
+                    "on-primary-container": "#6d5000",
+                    "on-surface-variant": "#d4c5ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin": "24px",
+                    "gutter": "16px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "xl": "32px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "h1": ["Inter"],
+                    "h3": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "data-mono": ["monospace"],
+                    "h2": ["Inter"]
+            },
+            "fontSize": {
+                    "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.06em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .border-box { border: 1px solid #333333; }
+        .zebra-striping div:nth-child(even) { background-color: #1c1b1b; }
+        .zebra-striping div:nth-child(odd) { background-color: #131313; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-zinc-950 docked full-width top-0 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-3 sticky z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-zinc-800 border border-amber-400/20">
+<img alt="User Profile Avatar" data-alt="A professional close-up portrait of a safety inspector in an industrial setting, wearing a high-visibility vest and a focused expression. The lighting is dramatic and cool-toned, with bokeh industrial lights in the background. The aesthetic is sharp, professional, and authoritative, matching the dark mode industrial minimalism of the GearGuard AI interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxamcE0wSDXRMr6i4YhMUK_qRCAwcbQfVjPdeOGEod63gFqP_kqprn6KRR2_55y3F6D0yDqxi1gbEBjhFCIKiaLLwKdzs07uZaz9dg4mI57MiDKC6_vme9fjrjaH3gQYqO6h28mqFwgGt-9tFIwM_MW85hYkj6yUfXFWQjHCuzw5xjBYPO_vG2fd0f45P1rx7d1zuk6scyjKK3GfsQsV4P9lUj9caSDveFuhdseTZ6Bvrl1Rh5hrGgztFTXG8Q8paf46DVzyrU4cw"/>
+</div>
+<span class="text-amber-400 font-black tracking-tighter text-xl uppercase">GEARGUARD AI</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-500 hover:bg-zinc-900 transition-colors p-2 rounded active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-5xl mx-auto px-6 py-8 pb-32">
+<!-- Dashboard Header & Search -->
+<div class="mb-8">
+<h1 class="font-h1 text-h1 mb-2">COMPLIANCE HISTORY</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Review historical audits and safety logs across all registered facilities.</p>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<div class="md:col-span-8 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" data-icon="search">search</span>
+<input class="w-full bg-surface-container border border-outline-variant rounded-lg pl-10 pr-4 py-3 font-label-caps text-on-surface focus:border-primary-container outline-none transition-colors" placeholder="SEARCH BY FACILITY, DATE, OR OPERATOR..." type="text"/>
+</div>
+<div class="md:col-span-4 flex gap-2">
+<button class="flex-1 bg-surface-container border border-outline-variant rounded-lg px-4 py-2 flex items-center justify-between font-label-caps hover:bg-zinc-800 transition-colors">
+                        SORT: NEWEST <span class="material-symbols-outlined text-xs" data-icon="expand_more">expand_more</span>
+</button>
+<button class="bg-surface-container border border-outline-variant rounded-lg px-4 py-2 flex items-center justify-center hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- History List -->
+<div class="flex flex-col gap-1 zebra-striping">
+<!-- Audit Entry 1 -->
+<div class="border-box rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:border-amber-400/50 transition-colors group cursor-pointer">
+<div class="w-full md:w-32 h-20 bg-zinc-900 rounded overflow-hidden flex-shrink-0 border border-zinc-800">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A detailed technical schematic of a robotic manufacturing arm displayed on a digital screen with amber vector lines over a dark background. The image is highly precise and technical, evoking an industrial compliance and safety audit atmosphere with clean architectural lines and high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8s4v45XYktO4ZlhbcrqahG4SUAn1HC1uDPx_wY73oXVFqIK-SiBw_iZQsLA7u3obA9wwCEblSkZ0wUTCMFvnrod7I3MBfEgZRCgOgwn8AOWEwnKSjrrnN-Dt_4rYEldDA8SAOw2mx8YoFiP2boUevOTK5BJv2xsd81mZEqxTSd_-NVAIsNZKjBPgdR2GjvLuUOtAhSSo8tWxXfTf4aMdR0UA1sNuXCN74cw0xMkbXPn4D81dx1BDBOFqnGSHi4tTq6baQOx0GJqU"/>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-h3 text-h3 text-on-surface">NORTH WING - CONVEYOR B3</h3>
+<div class="flex items-center gap-2 px-3 py-1 bg-tertiary/10 border border-tertiary rounded-full">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-caps text-[10px] text-tertiary">COMPLIANT</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-2 gap-x-6 text-zinc-500">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="calendar_today">calendar_today</span>
+<span class="font-data-mono text-xs uppercase">OCT 24, 2023 | 09:45 AM</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="person">person</span>
+<span class="font-data-mono text-xs uppercase">ID: 99283 - J. DOE</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="inventory_2">inventory_2</span>
+<span class="font-data-mono text-xs uppercase">RISK FACTOR: 0.02</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-amber-400 transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Audit Entry 2 -->
+<div class="border-box rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:border-amber-400/50 transition-colors group cursor-pointer">
+<div class="w-full md:w-32 h-20 bg-zinc-900 rounded overflow-hidden flex-shrink-0 border border-zinc-800">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A dark, industrial interior showing heavy machinery and yellow safety cages. The scene is lit with harsh overhead fluorescent lights creating high contrast and deep shadows, emphasizing the gritty, precise environment of a heavy machinery plant for safety inspection logs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgvQKQUKtH3_FDEXZIKrBwchgWczirdC-gZAVEysDbMtfO9rLLUE-ltGck8pkIU5XEBEBAqFZoqCg-eNadnvTEOO3ee7An0EgtHkxch3U4MVMtvZ_3Wj3wviJYuaLILLiRxEwi4v70nnnG4O-tSFQ2lynDsZ81XUT2tMNh8ZX3xqPq9RM1JKytx5UCosyQB4FhUoTmYgEG6QisBbsbnuGqUpR9N2jtzhVa5AGOxKIPf8TWwqG_BMviGfDHefmKclrk1znIXdZfdx8"/>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-h3 text-h3 text-on-surface">CENTRAL HUB - ASSEMBLY LINE 1</h3>
+<div class="flex items-center gap-2 px-3 py-1 bg-amber-400/10 border border-amber-400 rounded-full">
+<span class="material-symbols-outlined text-sm text-amber-400" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-caps text-[10px] text-amber-400">WARNING</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-2 gap-x-6 text-zinc-500">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="calendar_today">calendar_today</span>
+<span class="font-data-mono text-xs uppercase">OCT 22, 2023 | 02:15 PM</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="person">person</span>
+<span class="font-data-mono text-xs uppercase">ID: 88412 - M. ROSS</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="inventory_2">inventory_2</span>
+<span class="font-data-mono text-xs uppercase">RISK FACTOR: 0.45</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-amber-400 transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Audit Entry 3 -->
+<div class="border-box rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:border-amber-400/50 transition-colors group cursor-pointer">
+<div class="w-full md:w-32 h-20 bg-zinc-900 rounded overflow-hidden flex-shrink-0 border border-zinc-800">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A blueprint layout of a turbine housing unit displayed on an industrial terminal. The screen glows with a deep red light indicating a critical failure state. The image uses sharp vector lines and high technical detail, maintaining a vigilant and precise industrial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5yuLk4rslGhOqp-cwUia6LdulroDIi1_fVXmHUdMzhRtqJfhHI8dnyqph_pFo7Kcuq52cAYzlJt4bjmBjGCUr3m5ncObk7EDjFetWWTQiVqUzdTXfV2ge8jLzKF10j8BR1ogfuiW6N2eNhZthDrK_CJFowHFdPRlRy9-mJNe7GqSfSc8ZsDbu2UigD3Oubs1GhLxYTegog1w1b7vPuThuA8kr_FKAyCB7u1nKFsznNBpfsr-6KhHGsHSOTTB8E-kTwEl7E5LkHno"/>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-h3 text-h3 text-on-surface">STORAGE CELL 04 - HYDRAULICS</h3>
+<div class="flex items-center gap-2 px-3 py-1 bg-error/10 border border-error rounded-full">
+<span class="material-symbols-outlined text-sm text-error" data-icon="dangerous" style="font-variation-settings: 'FILL' 1;">dangerous</span>
+<span class="font-label-caps text-[10px] text-error">CRITICAL</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-2 gap-x-6 text-zinc-500">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="calendar_today">calendar_today</span>
+<span class="font-data-mono text-xs uppercase">OCT 18, 2023 | 11:30 AM</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="person">person</span>
+<span class="font-data-mono text-xs uppercase">ID: 99283 - J. DOE</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="inventory_2">inventory_2</span>
+<span class="font-data-mono text-xs uppercase">RISK FACTOR: 0.92</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-amber-400 transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Audit Entry 4 -->
+<div class="border-box rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:border-amber-400/50 transition-colors group cursor-pointer">
+<div class="w-full md:w-32 h-20 bg-zinc-900 rounded overflow-hidden flex-shrink-0 border border-zinc-800">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="An industrial control panel with various glowing buttons and monochromatic displays. The lighting is low-key, emphasizing the amber and white lights of the panel. The overall mood is focused and technical, suggesting a highly controlled industrial monitoring environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCowCf0hb7bWpleVCDHLWQ9uF05PJfrXq-qsUQKUunBGp7FGxyqeie1Nd88aLfWiUqAw7CzGIDuWrOVZzh6MBahNnJt53JnbUQdr964E7M18uzcUwR0V4vjMTSHtHNrTcmAOwwIVUG58NjUcpielUilbBXSKPgz-uM8Q05rlp-nyd-wln-Dbd2KJZ6G22ExtITJFVKva9n0TrGW9dElLufBG2MgO2S_EX4xsKBG0ke5Adx5J-Q7WMfEnwO8AKSDUgRfUuLTF6dbCIY"/>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-h3 text-h3 text-on-surface">MAIN SUBSTATION - TRANSFORMER A</h3>
+<div class="flex items-center gap-2 px-3 py-1 bg-tertiary/10 border border-tertiary rounded-full">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-caps text-[10px] text-tertiary">COMPLIANT</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-y-2 gap-x-6 text-zinc-500">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="calendar_today">calendar_today</span>
+<span class="font-data-mono text-xs uppercase">OCT 15, 2023 | 08:00 AM</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="person">person</span>
+<span class="font-data-mono text-xs uppercase">SYSTEM AUTO-SCAN</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="inventory_2">inventory_2</span>
+<span class="font-data-mono text-xs uppercase">RISK FACTOR: 0.00</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-amber-400 transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-8 flex justify-center">
+<button class="bg-zinc-900 border border-zinc-800 rounded px-6 py-2 font-label-caps text-zinc-400 hover:text-amber-400 hover:border-amber-400 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+                LOAD OLDER LOGS
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full grid grid-cols-4 items-center bg-zinc-900 pb-safe border-t border-zinc-800 z-50">
+<!-- Dashboard -->
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-amber-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">Dashboard</span>
+</a>
+<!-- Analyze -->
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-amber-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="center_focus_weak">center_focus_weak</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">Analyze</span>
+</a>
+<!-- History (Active) -->
+<a class="flex flex-col items-center justify-center text-amber-400 bg-amber-400/5 py-2 hover:text-amber-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">History</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-amber-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">Settings</span>
+</a>
+</nav>
+</body></html>

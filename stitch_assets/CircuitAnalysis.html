@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-primary": "#795900",
+                    "background": "#131313",
+                    "surface-variant": "#353534",
+                    "on-secondary-fixed": "#1b1b1c",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed": "#e5e2e1",
+                    "outline": "#9c8f78",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "secondary-container": "#474746",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#474746",
+                    "error": "#ffb4ab",
+                    "secondary": "#c8c6c5",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#5c4300",
+                    "primary-fixed-dim": "#fbbc00",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "surface-container": "#201f1f",
+                    "primary": "#ffe2ab",
+                    "outline-variant": "#504532",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#393939",
+                    "primary-container": "#ffbf00",
+                    "surface-tint": "#fbbc00",
+                    "on-tertiary": "#00390a",
+                    "on-tertiary-fixed": "#002204",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-fixed-dim": "#78dc77",
+                    "tertiary-fixed": "#94f990",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#b7b5b4",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary": "#303030",
+                    "surface-container-highest": "#353534",
+                    "on-primary": "#402d00",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary": "#96fc93",
+                    "on-tertiary-container": "#006218",
+                    "on-error": "#690005",
+                    "primary-fixed": "#ffdfa0",
+                    "on-primary-fixed": "#261a00",
+                    "surface": "#131313",
+                    "tertiary-container": "#7bdf79",
+                    "on-primary-container": "#6d5000",
+                    "on-surface-variant": "#d4c5ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin": "24px",
+                    "gutter": "16px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "xl": "32px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "h1": ["Inter"],
+                    "h3": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "data-mono": ["monospace"],
+                    "h2": ["Inter"]
+            },
+            "fontSize": {
+                    "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.06em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanning-line {
+            background: linear-gradient(to bottom, transparent, #ffbf00, transparent);
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        .vision-grid {
+            background-image: radial-gradient(rgba(255, 191, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-zinc-950 text-amber-400 fixed top-0 w-full z-50 border-b border-zinc-800 flex justify-between items-center px-6 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-zinc-800 overflow-hidden border border-zinc-700">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a male industrial safety engineer in his 30s wearing subtle protective gear. The background is a blurred high-tech control room with amber light accents. The portrait is high-contrast, moody, and conveys expertise and vigilance in a modern industrial setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqDiLfTXlia8wtXBtnq6nqpjuvOq-L3mLYYyccKQgQh1QBpJvpGm1TYe6eaRwAWmCZC0I-2gDab6G9ArC7555lKwe53JQAN90ut9cPfVSLPT_fciwceZOpngzfW0dyAbvJb6TlG0KtitGEOCitbMfdibha3LKQMhDVRXFPjcHL2CRDi4L0Mk4VHN3TFd2U7p_vID-xegsFK0CQDOBHDna4DtiZLjLjQ3RWWUa6ssKo_a26hZriacSXlAGfyxT5i4ARElgko1NmS8c"/>
+</div>
+<span class="text-amber-400 font-black tracking-tighter text-xl">GEARGUARD AI</span>
+</div>
+<button class="material-symbols-outlined text-zinc-500 hover:bg-zinc-900 transition-colors p-2 rounded">notifications</button>
+</header>
+<main class="pt-20 px-container-margin max-w-5xl mx-auto">
+<!-- Header Section -->
+<div class="mb-lg">
+<h1 class="font-h1 text-h1 text-on-surface mb-xs">Vision Analyzer</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Upload circuit schematics or PCB captures for automated safety compliance auditing.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Vision/Upload Area -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<!-- View Toggle -->
+<div class="flex bg-surface-container-low p-1 rounded-lg self-start border border-outline-variant">
+<button class="px-md py-sm bg-primary-container text-on-primary-container font-label-caps rounded-lg transition-all">PHOTO</button>
+<button class="px-md py-sm text-zinc-500 font-label-caps hover:text-on-surface transition-all">SCHEMATIC</button>
+</div>
+<!-- Analysis Canvas -->
+<div class="relative aspect-video bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden group cursor-pointer vision-grid">
+<img class="w-full h-full object-cover opacity-60" data-alt="A detailed macro photograph of a green printed circuit board with various electronic components like capacitors, resistors, and integrated circuits. Overlaid on the image are digital HUD elements including amber targeting reticles, scanning lines, and data readouts. The aesthetic is industrial, precise, and tech-heavy with a dark-mode atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-NnQml6PXvXdmSheG6SiZS1HZZQRQp2fa7nwkbpAzRt6_Jfl_y0_8tn9tbIMaCgZvKbw9KbnFBUGSOMJogatsvCLRR5Ba1jhZilJ8BsJ9Yrv95MXZ9Ngbznh6o3vAqQtili-8IpG6uZtXkHOLMKbIssGy8Orq8tQzW99uR_7b8JUCktTcntinqM5VxSkVmKOLnYaS4Jj7Cm4v-87tlsfq7IOfcHsQMkR1nsVHH8XPyY9bDmEGE-1p_GxzDN25bg-FDxQsCEketjo"/>
+<!-- Vision Mode Overlay -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="scanning-line"></div>
+<!-- Bounding Box Decorations -->
+<div class="absolute top-10 left-10 w-32 h-24 border-2 border-primary-container opacity-80 flex items-start justify-start p-2">
+<span class="font-data-mono text-[10px] text-primary-container bg-background/80 px-1">LOGIC_GATE_04</span>
+</div>
+<div class="absolute bottom-20 right-20 w-40 h-32 border-2 border-primary-container opacity-80 flex items-end justify-end p-2">
+<span class="font-data-mono text-[10px] text-primary-container bg-background/80 px-1">MCU_CONTROL_UNIT</span>
+</div>
+</div>
+<!-- Upload Placeholder (Hidden when analyzing) -->
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-background/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-sm">upload_file</span>
+<p class="font-label-caps text-on-surface">TAP TO REPLACE SOURCE</p>
+</div>
+</div>
+<!-- Control Bar -->
+<div class="flex items-center justify-between bg-surface-container p-md rounded-lg border border-outline-variant">
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-sm bg-primary-container text-on-primary-container px-md py-sm rounded font-label-caps hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+                            RESUME SCAN
+                        </button>
+<button class="flex items-center gap-sm border border-outline-variant px-md py-sm rounded font-label-caps text-on-surface hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+                            RESET
+                        </button>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+<span class="font-data-mono text-tertiary uppercase text-xs">Vision Engine Active</span>
+</div>
+</div>
+</div>
+<!-- Sidebar / Real-time Status -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- Compliance Monitor -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md">
+<h3 class="font-label-caps text-on-surface-variant mb-md border-b border-outline-variant pb-xs">COMPLIANCE STREAM</h3>
+<div class="flex flex-col gap-sm">
+<!-- Log Item 1 -->
+<div class="flex items-start gap-sm border-l-2 border-primary-container pl-sm py-xs bg-primary-container/5">
+<div class="flex flex-col">
+<span class="font-data-mono text-xs text-primary-container">ISO 13849 CHECK</span>
+<p class="text-xs text-on-surface">Analyzing Logic Blocks...</p>
+</div>
+<span class="ml-auto material-symbols-outlined text-[16px] text-primary-container animate-pulse">sync</span>
+</div>
+<!-- Log Item 2 -->
+<div class="flex items-start gap-sm border-l-2 border-tertiary pl-sm py-xs">
+<div class="flex flex-col">
+<span class="font-data-mono text-xs text-tertiary">SIGNAL_PATH_OK</span>
+<p class="text-xs text-zinc-500">Redundancy verified in Block A.</p>
+</div>
+<span class="ml-auto material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+</div>
+<!-- Log Item 3 -->
+<div class="flex items-start gap-sm border-l-2 border-zinc-700 pl-sm py-xs">
+<div class="flex flex-col">
+<span class="font-data-mono text-xs text-zinc-500">EMI_SHIELD_SCAN</span>
+<p class="text-xs text-zinc-500">Waiting for full render...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Analysis Summary -->
+<div class="bg-surface-container-high border border-zinc-700 rounded-xl p-md flex flex-col gap-md">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-caps text-[10px] text-zinc-500">CONFIDENCE SCORE</span>
+<div class="text-h2 font-h2 text-primary-container">98.2%</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-[10px] text-zinc-500">PROCESSING</span>
+<div class="font-data-mono text-sm text-on-surface">14.2 Gflops</div>
+</div>
+</div>
+<div class="h-1 bg-zinc-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[98.2%]"></div>
+</div>
+</div>
+<!-- Action Card -->
+<div class="bg-zinc-950 border border-amber-400/30 rounded-xl p-md relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-6xl text-amber-400">gavel</span>
+</div>
+<h4 class="font-h3 text-on-surface mb-xs">Export Audit</h4>
+<p class="text-body-sm text-zinc-500 mb-md">Generate a signed PDF compliance report based on the current vision analysis.</p>
+<button class="w-full bg-zinc-800 text-on-surface border border-zinc-700 py-sm rounded font-label-caps hover:bg-zinc-700 transition-colors">
+                        GENERATE REPORT
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full grid grid-cols-4 items-center bg-zinc-900 pb-safe border-t border-zinc-800 z-50">
+<!-- Dashboard -->
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-amber-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">Dashboard</span>
+</a>
+<!-- Analyze (Active) -->
+<a class="flex flex-col items-center justify-center text-amber-400 bg-amber-400/5 py-2 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">center_focus_weak</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">Analyze</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-amber-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">History</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-zinc-500 py-2 hover:text-amber-200 transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-[10px] uppercase font-semibold tracking-wider">Settings</span>
+</a>
+</nav>
+</body></html>
