@@ -21,7 +21,7 @@ const MaintenancePlanner = ({ onNavigate, auditData, historyData, onUpdateAudit,
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.post('http://localhost:5000/api/maintenance', { 
+      const response = await axios.post('/api/maintenance', { 
         auditData: selectedAudit,
         userRequest: userQuestion || "General reliability maintenance"
       });

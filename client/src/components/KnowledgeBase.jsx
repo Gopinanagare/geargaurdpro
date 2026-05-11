@@ -16,7 +16,7 @@ const KnowledgeBase = ({ onNavigate, showToast }) => {
     setIsSearching(true);
     setError(null);
     try {
-      const response = await axios.post('http://localhost:5000/api/knowledge', { componentName: q, query: q });
+      const response = await axios.post('/api/knowledge', { componentName: q, query: q });
       setResult(response.data);
       const updated = [q, ...recentSearches.filter(s => s !== q)].slice(0, 10);
       setRecentSearches(updated);

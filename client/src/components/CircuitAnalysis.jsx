@@ -155,7 +155,7 @@ const CircuitAnalysis = ({ onNavigate, onAnalysisComplete }) => {
     }, 60);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/audit', {
+      const response = await axios.post('/api/audit', {
         image: selectedImage,
         text: logicText,
         complianceStandard: selectedStandard,
