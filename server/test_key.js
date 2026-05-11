@@ -3,8 +3,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 async function test() {
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY, { apiVersion: "v1" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     try {
         const result = await model.generateContent("Hello");
         console.log("Success:", result.response.text());

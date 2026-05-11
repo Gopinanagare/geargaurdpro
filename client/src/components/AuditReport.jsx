@@ -21,8 +21,8 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
   };
 
   const copyRemediation = () => {
-    const text = auditData.logic_vulnerabilities?.map((v, i) =>
-      `Issue #${i+1}: ${v}\nFix: ${auditData.mitigation_strategies?.[i] || 'N/A'}`
+    const text = auditData.technical_anomalies?.map((a, i) =>
+      `Issue #${i+1}: ${a.issue}\nFix: ${a.fix}`
     ).join('\n\n');
     navigator.clipboard.writeText(text || '');
     showToast?.('Remediations copied');
@@ -52,12 +52,9 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
       <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 print:static">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-zinc-950 font-bold">verified_user</span>
+            <span className="material-symbols-outlined text-zinc-950 text-xl font-bold">shield</span>
           </div>
-          <div>
-            <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase leading-none">GEARGUARD PRO</h1>
-            <p className="text-[10px] text-zinc-500 font-bold tracking-[0.2em] uppercase mt-1">Audit ID: {auditData.certification_id || 'CERT-882-X9'}</p>
-          </div>
+          <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase leading-none">GEARGUARD AI</h1>
         </div>
         <div className="flex items-center gap-3 print:hidden">
           <div className="hidden md:flex flex-col items-end border-r border-zinc-800 pr-4">
@@ -251,6 +248,12 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-zinc-900">
                     <p className={`text-[9px] font-black ${(comp.health || 100) > 70 ? 'text-green-500' : 'text-red-500'}`}>{comp.health || 100}% HP</p>
+                    {comp.Suggested_Replacement && (
+                      <div className="flex flex-col items-end">
+                        <p className="text-[7px] text-zinc-600 font-bold uppercase">REPLACE WITH</p>
+                        <p className="text-[8px] text-amber-400 font-bold uppercase">{comp.Suggested_Replacement}</p>
+                      </div>
+                    )}
                     <p className="text-[10px] font-mono text-zinc-500 font-bold">${comp.estimated_cost || '0'}</p>
                   </div>
                 </div>
@@ -266,21 +269,26 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
             <button onClick={copyRemediation} className="text-[10px] font-bold text-amber-400 uppercase tracking-widest hover:underline print:hidden">COPY ALL</button>
           </div>
           <div className="space-y-6">
-            {auditData.logic_vulnerabilities?.map((vuln, idx) => (
-              <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 bg-zinc-950/30 rounded-xl border border-zinc-900 hover:border-zinc-800 transition-all">
+            {auditData.technical_anomalies?.map((anomaly, idx) => (
+              <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 bg-zinc-950/30 rounded-xl border border-zinc-900 hover:border-zinc-800 transition-all overflow-hidden relative">
+                <div className="absolute top-4 right-4">
+                  <span className={`text-[8px] font-black px-2 py-0.5 rounded border ${anomaly.severity === 'CRITICAL' ? 'bg-red-500/10 text-red-500 border-red-500/30' : anomaly.severity === 'OPTIMIZATION' ? 'bg-blue-500/10 text-blue-500 border-blue-500/30' : 'bg-amber-500/10 text-amber-500 border-amber-500/30'}`}>
+                    {anomaly.severity || 'WARNING'}
+                  </span>
+                </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-6 bg-red-500"></span>
                     <span className="text-[10px] font-black tracking-widest uppercase text-red-500">ANOMALY #{idx + 1}</span>
                   </div>
-                  <p className="text-sm font-bold text-zinc-200 leading-relaxed uppercase">{vuln}</p>
+                  <p className="text-sm font-bold text-zinc-200 leading-relaxed break-words whitespace-pre-wrap">{anomaly.issue}</p>
                 </div>
                 <div className="space-y-3 md:border-l md:border-zinc-800 md:pl-8">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-6 bg-green-500"></span>
                     <span className="text-[10px] font-black tracking-widest uppercase text-green-500">REMEDIATION</span>
                   </div>
-                  <p className="text-sm text-zinc-400 leading-relaxed uppercase">{auditData.mitigation_strategies?.[idx] || 'System redesign required.'}</p>
+                  <p className="text-sm text-zinc-400 leading-relaxed break-words whitespace-pre-wrap">{anomaly.fix || 'System redesign required.'}</p>
                 </div>
               </div>
             ))}
@@ -320,7 +328,7 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
       </main>
 
       {/* Navigation */}
-      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-4 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50 print:hidden">
+      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-3 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50 print:hidden">
         <button onClick={() => onNavigate('dashboard')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">dashboard</span>
           <span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Dashboard</span>
@@ -328,10 +336,6 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
         <button onClick={() => onNavigate('analyze')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">center_focus_weak</span>
           <span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Analyze</span>
-        </button>
-        <button onClick={() => onNavigate('compare')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
-          <span className="material-symbols-outlined text-lg">compare</span>
-          <span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Compare</span>
         </button>
         <button onClick={() => onNavigate('history')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all">
           <span className="material-symbols-outlined text-lg">history</span>

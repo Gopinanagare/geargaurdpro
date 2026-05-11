@@ -16,10 +16,10 @@ const Dashboard = ({ onNavigate, historyData = [] }) => {
     <div className="bg-background text-on-background min-h-screen flex flex-col font-inter">
       <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-3 z-50 sticky top-0">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-zinc-950 text-lg font-bold">shield</span>
+          <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center">
+            <span className="material-symbols-outlined text-zinc-950 text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-xl uppercase">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase">GEARGUARD AI</h1>
         </div>
         <div className="flex items-center gap-4">
           <div className="hidden md:flex flex-col items-end">
@@ -88,9 +88,8 @@ const Dashboard = ({ onNavigate, historyData = [] }) => {
           </section>
 
           {/* Feature Cards */}
-          <section className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <section className="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { icon: 'compare', label: 'Diff Audit', desc: 'Compare schematics', view: 'compare', color: 'text-purple-400 bg-purple-400/10 border-purple-400/20' },
               { icon: 'build', label: 'Maintenance', desc: 'Predictive schedule', view: 'maintenance', color: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/20' },
               { icon: 'menu_book', label: 'Knowledge', desc: 'Component database', view: 'knowledge', color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' },
               { icon: 'history', label: 'Archive', desc: `${stats.total} audits`, view: 'history', color: 'text-amber-400 bg-amber-400/10 border-amber-400/20' },
@@ -138,15 +137,12 @@ const Dashboard = ({ onNavigate, historyData = [] }) => {
         </div>
       </main>
 
-      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-4 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
+      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-3 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
         <button onClick={() => onNavigate('dashboard')} className="flex flex-col items-center justify-center text-amber-400 bg-amber-400/5 py-3 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">dashboard</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Dashboard</span>
         </button>
         <button onClick={() => onNavigate('analyze')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">center_focus_weak</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Analyze</span>
-        </button>
-        <button onClick={() => onNavigate('compare')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
-          <span className="material-symbols-outlined text-lg">compare</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Compare</span>
         </button>
         <button onClick={() => onNavigate('history')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all">
           <span className="material-symbols-outlined text-lg">history</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Archive</span>

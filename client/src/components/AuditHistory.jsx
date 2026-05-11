@@ -16,10 +16,10 @@ const AuditHistory = ({ historyData, onNavigate, onClearHistory }) => {
     <div className="bg-background text-on-surface font-inter min-h-screen pb-24">
       <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-3 sticky top-0 z-50">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-zinc-950 text-lg font-bold">history</span>
+          <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center">
+            <span className="material-symbols-outlined text-zinc-950 text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-xl uppercase">AUDIT ARCHIVE</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase">GEARGUARD AI</h1>
         </div>
         <div className="flex items-center gap-2">
           <span className="uppercase tracking-widest text-[10px] font-bold text-zinc-500">{historyData?.length || 0} Records</span>
@@ -102,15 +102,12 @@ const AuditHistory = ({ historyData, onNavigate, onClearHistory }) => {
         </div>
       </main>
 
-      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-4 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
+      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-3 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
         <button onClick={() => onNavigate('dashboard')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">dashboard</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Dashboard</span>
         </button>
         <button onClick={() => onNavigate('analyze')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">center_focus_weak</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Analyze</span>
-        </button>
-        <button onClick={() => onNavigate('compare')} className="flex flex-col items-center justify-center text-zinc-500 py-3 hover:text-amber-400 transition-all border-r border-zinc-800">
-          <span className="material-symbols-outlined text-lg">compare</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Compare</span>
         </button>
         <button onClick={() => onNavigate('history')} className="flex flex-col items-center justify-center text-amber-400 bg-amber-400/5 py-3 transition-all">
           <span className="material-symbols-outlined text-lg">history</span><span className="text-[9px] uppercase font-semibold tracking-wider mt-1">Archive</span>
