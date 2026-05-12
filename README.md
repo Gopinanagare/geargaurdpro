@@ -1,12 +1,12 @@
-# 🛡️ GearGuard PRO v12.0 — Hyper-Forensic Audit Engine
+# 🛡️ GearGuard AI — Hyper-Forensic Audit Engine
 ### *The Zero-Trust Standard for Industrial Safety & Logic Verification*
 
-**GearGuard PRO** is a state-of-the-art, AI-powered forensic audit platform designed to eliminate failure points in industrial control systems. By combining deep-pixel computer vision with Gemini Multimodal Ensemble logic, it provides a "Digital Twin" audit experience that exceeds human capability in both speed and recall.
+**GearGuard AI** is a state-of-the-art, AI-powered forensic audit platform designed to eliminate failure points in industrial control systems. By combining deep-pixel computer vision with Gemini Multimodal Ensemble logic, it provides a "Digital Twin" audit experience that exceeds human capability in both speed and recall.
 
 ---
 
 ## 🏛️ System Architecture
-GearGuard PRO is built on a **High-Precision Multimodal Ensemble Pipeline**:
+GearGuard AI is built on a **High-Precision Multimodal Ensemble Pipeline**:
 1. **Vision Layer**: Neural pixel scanning of hardware schematics vs. PCB layouts.
 2. **Logic Layer**: Advanced timing analysis (RC+BJT 0.7V threshold) and functional synthesis.
 3. **Audit Layer**: Semantic deduplication and cross-verification against international standards (ISO, IEC, UL).
@@ -14,27 +14,20 @@ GearGuard PRO is built on a **High-Precision Multimodal Ensemble Pipeline**:
 
 ---
 
-## 🚀 Features
+## 🚀 Recent UI Optimizations (v12.1)
 
-### Core Audit Engine
-- **🔍 Zero-Trust Forensic Scan** — 100% component and designator recall with deep-pixel AI vision analysis.
-- **⚡ Semantic Deduplication (v11.6)** — Advanced LLM-assisted merging of redundant anomalies (e.g., 'timing' vs 'delay' networks).
-- **🌡️ Thermal Zone Mapping** — AI identifies physical hotspot areas vs. logical thermal specs.
-- **🔁 Redundancy Verification** — Mandatory Flyback Diode checks for Relay+Transistor circuits.
-- **⏱️ Advanced Timing Analysis** — Precision RC network auditing against BJT Vbe thresholds (~0.7V).
+### 🖥️ Zero-Scroll Command Center
+The entire application has been re-engineered for **One-Screen Visibility**. All critical data, inputs, and controls are now visible within a single viewport, eliminating the need for vertical scrolling and ensuring "Command Center" efficiency.
 
-### Advanced Intelligence
-- **🤖 AI Chat Follow-Up** — Context-aware follow-up Q&A about specific audit findings.
-- **📋 Maintenance Archive** — Full historical browse-and-recall system for all past audits.
-- **💬 Targeted Inquiry Planning** — User-driven maintenance scheduling based on specific system requirements.
-- **🧠 Component Knowledge Base** — Search any component for specs, failure modes, and modern replacements.
+### 🔍 Ultra-Compact Analyzer
+- **Dual-Column Compliance**: Streamlined standard selection for rapid workflow.
+*   **Space-Efficient Inputs**: Reduced footprint for image uploads and logic specifications.
+- **Fixed Action Bar**: "Initiate Audit" button is always pinned and ready.
 
-### Enterprise Features
-- **🎯 Compliance Standard Selector** — ISO 13849, IEC 61508, IEC 62443, NFPA 79, UL 508A.
-- **🎙️ Voice Command Input** — Hands-free operation via Web Speech API.
-- **🛡️ Session Isolation** — CRITICAL: State-purge protocol ensuring zero data leakage between audits.
-- **📜 QR-Verified Certificates** — Professional compliance certificates with QR verification codes.
-- **💾 Persistent History** — LocalStorage-based audit archive with persistent maintenance plans.
+### 📊 Intuitive Dashboard
+- **Priority Hero Action**: Large, high-contrast "START NEW AUDIT" section for immediate onboarding.
+- **Condensed Health Gauge**: Real-time global safety score in a space-optimized card.
+- **Clean Activity Feed**: Displaying the 2 most recent audits for focus, with a deep archive for history.
 
 ---
 
@@ -51,47 +44,12 @@ GearGuard PRO is built on a **High-Precision Multimodal Ensemble Pipeline**:
 
 ---
 
-## 📦 Project Structure
-
-```
-hack/
-├── client/                    # React (Vite) Frontend
-│   └── src/
-│       ├── components/
-│       │   ├── Dashboard.jsx        # Dynamic stats dashboard
-│       │   ├── CircuitAnalysis.jsx   # Multimodal input + scanning UI
-│       │   ├── AuditReport.jsx       # Full forensic report view
-│       │   ├── AuditHistory.jsx      # Persistent audit archive
-│       │   ├── MaintenancePlanner.jsx# Archive-linked maintenance planner
-│       │   ├── KnowledgeBase.jsx     # Component intelligence DB
-│       │   ├── AIChatPanel.jsx       # AI follow-up chat panel
-│       ├── App.jsx                   # Router + State Synchronization
-│       └── index.css                 # Design system + animations
-├── server/
-│   ├── audit_engine.js               # Core Ensemble Backend
-│   └── .env                          # Security credentials
-└── README.md
-```
-
----
-
-## 🔌 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/audit` | Ensemble forensic audit with state-purge isolation |
-| POST | `/api/maintenance` | Targeted strategic maintenance plan generation |
-| POST | `/api/chat` | Context-aware follow-up Q&A |
-| POST | `/api/knowledge` | Deep component intelligence lookup |
-
----
-
 ## 🚦 Getting Started
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Gopinanagare/hacktahon1.git
-cd hacktahon1
+git clone https://github.com/Gopinanagare/geargaurdpro.git
+cd geargaurdpro
 ```
 
 ### 2. Setup Backend
@@ -111,16 +69,15 @@ npm run dev
 
 ---
 
-## ⚡ Free Tier Optimized
+## 🛡️ Safety First
 
-This project is designed to work within Google Gemini's free tier limits:
-- **15 requests/minute** — Parallel ensemble calls with exponential backoff.
-- **Session Isolation** — Programmatic cleanup ensuring no data leakage between requests.
-- **Semantic Merging** — Reducing token costs by merging redundant analysis results.
+This tool is designed to augment professional engineering audits. Always ensure a qualified safety engineer reviews the generated reports for mission-critical deployments.
 
 ---
 
-## 🛡️ Safety First
+## 📄 License
+MIT License - Copyright (c) 2026 GearGuard Team
+ Safety First
 
 This tool is designed to augment professional engineering audits. Always ensure a qualified safety engineer reviews the generated reports for mission-critical deployments.
 

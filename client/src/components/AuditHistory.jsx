@@ -1,17 +1,6 @@
 import React from 'react';
 
 const AuditHistory = ({ historyData, onNavigate, onClearHistory }) => {
-  const exportAll = () => {
-    const data = JSON.stringify(historyData, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `gearguard_audit_history_${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
   return (
     <div className="bg-background text-on-surface font-inter min-h-screen pb-24">
       <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-3 sticky top-0 z-50">
@@ -34,14 +23,9 @@ const AuditHistory = ({ historyData, onNavigate, onClearHistory }) => {
           </div>
           <div className="flex gap-2">
             {historyData?.length > 0 && (
-              <>
-                <button onClick={exportAll} className="border border-zinc-800 text-zinc-500 px-4 py-2 text-[11px] font-bold tracking-widest rounded-xl hover:border-amber-400/30 hover:text-amber-400 transition-all uppercase">
-                  Export JSON
-                </button>
-                <button onClick={onClearHistory} className="border border-red-500/30 text-red-400 px-4 py-2 text-[11px] font-bold tracking-widest rounded-xl hover:bg-red-500/10 transition-all uppercase">
-                  Clear All
-                </button>
-              </>
+              <button onClick={onClearHistory} className="border border-red-500/30 text-red-400 px-4 py-2 text-[11px] font-bold tracking-widest rounded-xl hover:bg-red-500/10 transition-all uppercase">
+                Clear All
+              </button>
             )}
             <button onClick={() => onNavigate('analyze')} className="bg-amber-400 text-zinc-950 px-6 py-2 text-[12px] font-bold tracking-widest rounded-xl hover:bg-amber-300 transition-all uppercase">
               NEW SCAN
