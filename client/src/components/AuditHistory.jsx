@@ -8,7 +8,7 @@ const AuditHistory = ({ historyData, onNavigate, onClearHistory }) => {
           <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-amber-400 flex items-center justify-center">
             <span className="material-symbols-outlined text-zinc-950 text-lg lg:text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase">GEARGUARD PRO</h1>
         </div>
         <div className="flex items-center gap-2">
           <span className="uppercase tracking-widest text-[10px] font-bold text-zinc-500">{historyData?.length || 0} Records</span>

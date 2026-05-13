@@ -19,7 +19,7 @@ const Dashboard = ({ onNavigate, historyData = [] }) => {
           <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center">
             <span className="material-symbols-outlined text-zinc-950 text-lg font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-xl uppercase leading-none">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-xl uppercase leading-none">GEARGUARD PRO</h1>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex flex-col items-end">

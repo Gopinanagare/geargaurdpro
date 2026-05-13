@@ -68,7 +68,7 @@ const DebuggerAgent = ({ onNavigate, showToast }) => {
           <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-red-500 flex items-center justify-center">
             <span className="material-symbols-outlined text-white text-lg lg:text-xl font-bold">bug_report</span>
           </div>
-          <h1 className="text-red-400 font-black tracking-tighter text-xl lg:text-2xl uppercase leading-none">DEBUGGER</h1>
+          <h1 className="text-red-400 font-black tracking-tighter text-xl lg:text-2xl uppercase leading-none">GEARGUARD PRO</h1>
         </div>
         {diagnosis && (
           <button onClick={reset} className="bg-zinc-900 border border-zinc-800 hover:border-red-400 transition-all px-3 py-1.5 rounded-lg">

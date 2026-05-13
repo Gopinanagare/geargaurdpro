@@ -1,7 +1,7 @@
-# GearGuard AI 🛡️
+# GearGuard PRO 🛡️
 ### AI-Powered Industrial Safety & Diagnostic Ecosystem
 
-GearGuard AI is a state-of-the-art platform designed to revolutionize industrial safety and maintenance. By leveraging the **Google Gemini 1.5 Pro/Flash API**, it transforms static circuit schematics and machine data into actionable engineering intelligence.
+GearGuard PRO is a state-of-the-art platform designed to revolutionize industrial safety and maintenance. By leveraging the **Google Gemini 1.5 Pro/Flash API**, it transforms static circuit schematics and machine data into actionable engineering intelligence.
 
 ## 🚀 Key Features
 
@@ -77,7 +77,7 @@ node audit_engine.js
 ```bash
 npm run dev
 ```
-Open `http://localhost:5173` to launch GearGuard.
+Open `http://localhost:5173` to launch GearGuard PRO.
 
 ---
 
@@ -93,7 +93,7 @@ Open `http://localhost:5173` to launch GearGuard.
     ```
 3.  **Commit your changes**:
     ```bash
-    git commit -m "feat: complete GearGuard AI platform with Debugger Agent"
+    git commit -m "feat: complete GearGuard PRO platform with Debugger Agent"
     ```
 4.  **Connect to your repo**:
     ```bash

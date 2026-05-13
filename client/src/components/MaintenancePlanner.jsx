@@ -59,7 +59,7 @@ const MaintenancePlanner = ({ onNavigate, auditData, historyData, onUpdateAudit,
           <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-amber-400 flex items-center justify-center">
             <span className="material-symbols-outlined text-zinc-950 text-lg lg:text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase leading-none">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase leading-none">GEARGUARD PRO</h1>
         </div>
         <div className="flex gap-2">
           <button onClick={copySchedule} disabled={!schedule} className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 transition-all p-2 lg:p-3 rounded-lg group disabled:opacity-30">

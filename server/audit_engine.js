@@ -344,7 +344,7 @@ app.post('/api/chat', async (req, res) => {
 
 const PORT = 5000;
 if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => console.log(`\n🛡️  GEARGUARD v10.0 [NATIVE GEMINI ENSEMBLE] ACTIVE on ${PORT}\n`));
+    app.listen(PORT, () => console.log(`\n🛡️  GEARGUARD PRO v10.0 [NATIVE GEMINI ENSEMBLE] ACTIVE on ${PORT}\n`));
 }
 
 module.exports = app;
