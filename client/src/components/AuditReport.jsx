@@ -49,43 +49,43 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
   return (
     <div className="bg-background text-on-surface font-inter min-h-screen pb-24 print:pb-0">
       {/* Header */}
-      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 print:static">
+      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-4 lg:px-6 py-4 sticky top-0 z-50 print:static">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-zinc-950 text-xl font-bold">shield</span>
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-amber-400 flex items-center justify-center">
+            <span className="material-symbols-outlined text-zinc-950 text-lg lg:text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase leading-none">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase leading-none">GEARGUARD AI</h1>
         </div>
-        <div className="flex items-center gap-3 print:hidden">
-          <div className="hidden md:flex flex-col items-end border-r border-zinc-800 pr-4">
+        <div className="flex items-center gap-2 lg:gap-3 print:hidden">
+          <div className="hidden lg:flex flex-col items-end border-r border-zinc-800 pr-4">
             <span className="text-[10px] font-bold text-zinc-500 uppercase">COMPLIANCE</span>
             <span className="text-xs font-mono text-zinc-300 uppercase">{auditData.compliance_standard || 'ISO 13849'}</span>
           </div>
-          <button onClick={onOpenChat} className="bg-zinc-900 border border-zinc-800 hover:border-amber-400 transition-all p-3 rounded-lg group" title="Ask AI">
-            <span className="material-symbols-outlined text-zinc-500 group-hover:text-amber-400">smart_toy</span>
+          <button onClick={onOpenChat} className="bg-zinc-900 border border-zinc-800 hover:border-amber-400 transition-all p-2 lg:p-3 rounded-lg group" title="Ask AI">
+            <span className="material-symbols-outlined text-zinc-500 group-hover:text-amber-400 text-lg lg:text-xl">smart_toy</span>
           </button>
-          <button onClick={handleExport} className="bg-zinc-900 border border-zinc-800 hover:border-amber-400 transition-all p-3 rounded-lg group">
-            <span className="material-symbols-outlined text-zinc-500 group-hover:text-amber-400">download_for_offline</span>
+          <button onClick={handleExport} className="bg-zinc-900 border border-zinc-800 hover:border-amber-400 transition-all p-2 lg:p-3 rounded-lg group">
+            <span className="material-symbols-outlined text-zinc-500 group-hover:text-amber-400 text-lg lg:text-xl">download_for_offline</span>
           </button>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8 stagger-children">
+      <main className="max-w-7xl mx-auto px-4 lg:px-6 py-8 space-y-8 stagger-children">
         {/* Top Dashboard Row */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Status + Functional Analysis */}
-          <div className="lg:col-span-2 bg-surface-container border border-outline-variant p-8 rounded-2xl relative overflow-hidden">
+          <div className="lg:col-span-2 bg-surface-container border border-outline-variant p-6 lg:p-8 rounded-2xl relative overflow-hidden">
             <div className="z-10 relative">
               <div className="flex items-center gap-2 mb-4">
                 <span className={`w-3 h-3 rounded-full animate-pulse ${auditData.status === 'Safe' ? 'bg-green-500' : auditData.status === 'Warning' ? 'bg-amber-400' : 'bg-red-500'}`}></span>
                 <span className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase">Global Integrity Status</span>
               </div>
-              <h2 className={`text-6xl font-black uppercase tracking-tighter ${auditData.status === 'Safe' ? 'text-green-500' : auditData.status === 'Warning' ? 'text-amber-400' : 'text-red-500'}`}>
+              <h2 className={`text-4xl lg:text-6xl font-black uppercase tracking-tighter ${auditData.status === 'Safe' ? 'text-green-500' : auditData.status === 'Warning' ? 'text-amber-400' : 'text-red-500'}`}>
                 {auditData.status || 'Warning'}
               </h2>
               <p className="text-sm mt-6 text-on-surface-variant leading-relaxed font-medium uppercase tracking-wide">{auditData.compliance_report}</p>
 
-              <div className="mt-8 p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl">
+              <div className="mt-8 p-4 lg:p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="material-symbols-outlined text-amber-400 text-sm">settings_suggest</span>
                   <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Operational Intent</span>
@@ -95,19 +95,18 @@ const AuditReport = ({ auditData, onNavigate, onOpenChat, showToast }) => {
 
               {auditData.risk_score > 40 && (
                 <div className="mt-6 p-4 bg-red-500/10 border-2 border-red-500/50 rounded-xl flex items-center gap-4">
-                  <span className="material-symbols-outlined text-red-500 text-3xl">warning</span>
+                  <span className="material-symbols-outlined text-red-500 text-2xl lg:text-3xl">warning</span>
                   <div>
-                    <p className="text-xs font-black text-red-500 uppercase tracking-widest">SYSTEM OPERATIONAL RISK</p>
+                    <p className="text-[10px] font-black text-red-500 uppercase tracking-widest">SYSTEM OPERATIONAL RISK</p>
                     <p className="text-sm font-bold text-white uppercase">{auditData.operational_warning || 'Fix issues before deployment'}</p>
                   </div>
                 </div>
               )}
             </div>
             <div className="mt-6 flex gap-3 print:hidden z-10 relative flex-wrap">
-              <button onClick={handleExport} className="bg-amber-400 text-zinc-950 px-6 py-3 text-[11px] font-black tracking-widest rounded-xl hover:bg-amber-300 transition-all uppercase shadow-lg shadow-amber-400/20">EXPORT</button>
-              <button onClick={copyBOM} className="border border-zinc-700 text-zinc-400 px-4 py-3 text-[11px] font-black tracking-widest rounded-xl hover:border-amber-400/50 hover:text-amber-400 transition-all uppercase">CSV BOM</button>
-              <button onClick={copyRemediation} className="border border-zinc-700 text-zinc-400 px-4 py-3 text-[11px] font-black tracking-widest rounded-xl hover:border-amber-400/50 hover:text-amber-400 transition-all uppercase">COPY FIXES</button>
-              <button onClick={shareSummary} className="border border-zinc-700 text-zinc-400 px-4 py-3 text-[11px] font-black tracking-widest rounded-xl hover:border-amber-400/50 hover:text-amber-400 transition-all uppercase">SHARE</button>
+              <button onClick={handleExport} className="bg-amber-400 text-zinc-950 px-4 lg:px-6 py-3 text-[10px] lg:text-[11px] font-black tracking-widest rounded-xl hover:bg-amber-300 transition-all uppercase shadow-lg shadow-amber-400/20">EXPORT</button>
+              <button onClick={copyBOM} className="border border-zinc-700 text-zinc-400 px-4 py-3 text-[10px] lg:text-[11px] font-black tracking-widest rounded-xl hover:border-amber-400/50 hover:text-amber-400 transition-all uppercase">CSV BOM</button>
+              <button onClick={copyRemediation} className="border border-zinc-700 text-zinc-400 px-4 py-3 text-[10px] lg:text-[11px] font-black tracking-widest rounded-xl hover:border-amber-400/50 hover:text-amber-400 transition-all uppercase">COPY FIXES</button>
             </div>
             <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-amber-400/5 rounded-full blur-3xl"></div>
           </div>

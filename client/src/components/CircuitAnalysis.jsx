@@ -187,9 +187,9 @@ const CircuitAnalysis = ({ onNavigate, onAnalysisComplete }) => {
   };
 
   return (
-    <div className="bg-background text-on-surface font-inter h-screen flex flex-col overflow-hidden">
+    <div className="bg-background text-on-surface font-inter min-h-screen lg:h-screen flex flex-col lg:overflow-hidden">
       {/* Header */}
-      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-3 sticky top-0 z-50 flex-shrink-0">
+      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-4 lg:px-6 py-3 sticky top-0 z-50 flex-shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center">
             <span className="material-symbols-outlined text-zinc-950 text-lg font-bold">shield</span>
@@ -206,9 +206,9 @@ const CircuitAnalysis = ({ onNavigate, onAnalysisComplete }) => {
         </div>
       </header>
 
-      <main className="flex-1 max-w-7xl mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
+      <main className="flex-1 max-w-7xl mx-auto px-4 lg:px-6 py-4 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-y-auto lg:overflow-hidden pb-24 lg:pb-4">
         {/* Left Side: Input Controls */}
-        <div className="lg:col-span-5 space-y-4 flex flex-col overflow-y-auto pr-2 custom-scrollbar">
+        <div className="lg:col-span-5 space-y-4 flex flex-col lg:overflow-y-auto pr-0 lg:pr-2 lg:custom-scrollbar">
           <div>
             <h2 className="text-xl font-black uppercase tracking-tight mb-1">Multimodal Input</h2>
             <p className="text-[10px] text-zinc-500 uppercase tracking-wide leading-relaxed">Provide hardware schematics and PLC logic for hardware-logic co-auditing.</p>
@@ -327,7 +327,7 @@ const CircuitAnalysis = ({ onNavigate, onAnalysisComplete }) => {
         </div>
 
         {/* Right Side: Digital Twin Visualizer */}
-        <div className="lg:col-span-7 bg-zinc-900/30 border border-zinc-800 rounded-2xl overflow-hidden relative group h-full">
+        <div className="lg:col-span-7 bg-zinc-900/30 border border-zinc-800 rounded-2xl overflow-hidden relative group h-[300px] lg:h-full">
           {!selectedImage && !isScanning ? (
             <div className="h-full flex flex-col items-center justify-center p-10 text-center">
               <div className="w-24 h-24 rounded-full border border-zinc-800 flex items-center justify-center mb-6 relative">

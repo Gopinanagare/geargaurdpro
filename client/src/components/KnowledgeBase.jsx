@@ -32,29 +32,29 @@ const KnowledgeBase = ({ onNavigate, showToast }) => {
 
   return (
     <div className="bg-background text-on-surface font-inter min-h-screen pb-24">
-      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-4 lg:px-6 py-3 lg:py-4 sticky top-0 z-50">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-zinc-950 text-xl font-bold">shield</span>
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-amber-400 flex items-center justify-center">
+            <span className="material-symbols-outlined text-zinc-950 text-lg lg:text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase leading-none">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase leading-none">GEARGUARD AI</h1>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-10 space-y-8">
+      <main className="max-w-5xl mx-auto px-4 lg:px-6 py-6 lg:py-10 space-y-6 lg:space-y-8">
         {/* Search Bar */}
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <div className="flex-1 relative">
             <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600">search</span>
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && search()}
-              placeholder="Search any component, IC, sensor..."
-              className="w-full bg-zinc-900 border border-zinc-800 rounded-xl pl-12 pr-4 py-4 text-sm text-zinc-300 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-400/50 transition-colors"
+              placeholder="Search components..."
+              className="w-full bg-zinc-900 border border-zinc-800 rounded-xl pl-12 pr-4 py-3 lg:py-4 text-sm text-zinc-300 placeholder:text-zinc-700 focus:outline-none focus:border-emerald-400/50 transition-colors"
             />
           </div>
-          <button onClick={() => search()} disabled={!query.trim() || isSearching} className="bg-emerald-500 text-white px-6 rounded-xl font-black text-sm uppercase tracking-wider hover:bg-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+          <button onClick={() => search()} disabled={!query.trim() || isSearching} className="bg-emerald-500 text-white px-6 py-3 sm:py-0 rounded-xl font-black text-sm uppercase tracking-wider hover:bg-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
             {isSearching ? <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> : 'Search'}
           </button>
         </div>

@@ -17,7 +17,12 @@ GearGuard AI is built on a **High-Precision Multimodal Ensemble Pipeline**:
 ## 🚀 Recent UI Optimizations (v12.1)
 
 ### 🖥️ Zero-Scroll Command Center
-The entire application has been re-engineered for **One-Screen Visibility**. All critical data, inputs, and controls are now visible within a single viewport, eliminating the need for vertical scrolling and ensuring "Command Center" efficiency.
+The entire application has been re-engineered for **One-Screen Visibility**. All critical data, inputs, and controls are now visible within a single viewport on desktop, eliminating the need for vertical scrolling and ensuring "Command Center" efficiency.
+
+### 📱 Full Mobile Responsiveness
+- **Adaptive Layouts**: Seamless transition from desktop split-views to mobile vertical stacks.
+- **Touch-Optimized Controls**: Increased hit areas and simplified navigation for tablet and mobile users.
+- **Responsive Gauges**: Health scores and telemetry data resize dynamically for all screen sizes.
 
 ### 🔍 Ultra-Compact Analyzer
 - **Dual-Column Compliance**: Streamlined standard selection for rapid workflow.

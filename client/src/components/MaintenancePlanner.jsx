@@ -54,33 +54,33 @@ const MaintenancePlanner = ({ onNavigate, auditData, historyData, onUpdateAudit,
 
   return (
     <div className="bg-background text-on-surface font-inter min-h-screen pb-24">
-      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-4 lg:px-6 py-3 lg:py-4 sticky top-0 z-50">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-zinc-950 text-xl font-bold">shield</span>
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-amber-400 flex items-center justify-center">
+            <span className="material-symbols-outlined text-zinc-950 text-lg lg:text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase leading-none">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase leading-none">GEARGUARD AI</h1>
         </div>
         <div className="flex gap-2">
-          <button onClick={copySchedule} disabled={!schedule} className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 transition-all p-3 rounded-lg group disabled:opacity-30">
-            <span className="material-symbols-outlined text-zinc-500 group-hover:text-cyan-400">content_copy</span>
+          <button onClick={copySchedule} disabled={!schedule} className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 transition-all p-2 lg:p-3 rounded-lg group disabled:opacity-30">
+            <span className="material-symbols-outlined text-zinc-500 group-hover:text-cyan-400 text-lg lg:text-xl">content_copy</span>
           </button>
-          <button onClick={generateSchedule} disabled={isLoading || !selectedAudit} className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 transition-all p-3 rounded-lg group disabled:opacity-40">
-            <span className="material-symbols-outlined text-zinc-500 group-hover:text-cyan-400">refresh</span>
+          <button onClick={generateSchedule} disabled={isLoading || !selectedAudit} className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 transition-all p-2 lg:p-3 rounded-lg group disabled:opacity-40">
+            <span className="material-symbols-outlined text-zinc-500 group-hover:text-cyan-400 text-lg lg:text-xl">refresh</span>
           </button>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-10 space-y-8">
+      <main className="max-w-6xl mx-auto px-4 lg:px-6 py-6 lg:py-10 space-y-8">
         {/* LIST VIEW: Show all audits */}
         {!selectedAudit && (
           <div className="space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h2 className="text-3xl font-black uppercase tracking-tight">Maintenance Archive</h2>
-                <p className="text-sm text-zinc-500 uppercase tracking-widest mt-1">Select an audit to manage its strategic maintenance plan</p>
+                <h2 className="text-2xl lg:text-3xl font-black uppercase tracking-tight">Maintenance Archive</h2>
+                <p className="text-xs lg:text-sm text-zinc-500 uppercase tracking-widest mt-1">Select an audit to manage its strategic maintenance plan</p>
               </div>
-              <div className="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-xl flex items-center gap-3">
+              <div className="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-xl flex items-center gap-3 self-start">
                 <span className="text-[10px] font-black text-zinc-500 uppercase">Total Audits</span>
                 <span className="text-amber-400 font-bold">{historyData?.length || 0}</span>
               </div>
@@ -183,21 +183,21 @@ const MaintenancePlanner = ({ onNavigate, auditData, historyData, onUpdateAudit,
             </button>
             {/* Summary Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-surface-container border border-outline-variant p-6 rounded-2xl text-center">
-                <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Total Tasks</p>
-                <p className="text-3xl font-black text-cyan-400 mt-2">{schedule.schedule?.length || 0}</p>
+              <div className="bg-surface-container border border-outline-variant p-4 lg:p-6 rounded-2xl text-center">
+                <p className="text-[9px] lg:text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Total Tasks</p>
+                <p className="text-2xl lg:text-3xl font-black text-cyan-400 mt-2">{schedule.schedule?.length || 0}</p>
               </div>
-              <div className="bg-surface-container border border-outline-variant p-6 rounded-2xl text-center">
-                <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Est. Hours</p>
-                <p className="text-3xl font-black text-on-surface mt-2">{schedule.total_estimated_hours || 0}</p>
+              <div className="bg-surface-container border border-outline-variant p-4 lg:p-6 rounded-2xl text-center">
+                <p className="text-[9px] lg:text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Est. Hours</p>
+                <p className="text-2xl lg:text-3xl font-black text-on-surface mt-2">{schedule.total_estimated_hours || 0}</p>
               </div>
-              <div className="bg-surface-container border border-outline-variant p-6 rounded-2xl text-center">
-                <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Est. Cost</p>
-                <p className="text-3xl font-black text-amber-400 mt-2">${schedule.total_estimated_cost || 0}</p>
+              <div className="bg-surface-container border border-outline-variant p-4 lg:p-6 rounded-2xl text-center">
+                <p className="text-[9px] lg:text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Est. Cost</p>
+                <p className="text-2xl lg:text-3xl font-black text-amber-400 mt-2">${schedule.total_estimated_cost || 0}</p>
               </div>
-              <div className="bg-surface-container border border-outline-variant p-6 rounded-2xl text-center">
-                <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Health Score</p>
-                <p className="text-3xl font-black text-green-400 mt-2">{schedule.overall_maintenance_health || 0}%</p>
+              <div className="bg-surface-container border border-outline-variant p-4 lg:p-6 rounded-2xl text-center">
+                <p className="text-[9px] lg:text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Health Score</p>
+                <p className="text-2xl lg:text-3xl font-black text-green-400 mt-2">{schedule.overall_maintenance_health || 0}%</p>
               </div>
             </div>
 

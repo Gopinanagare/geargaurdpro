@@ -3,31 +3,31 @@ import React from 'react';
 const AuditHistory = ({ historyData, onNavigate, onClearHistory }) => {
   return (
     <div className="bg-background text-on-surface font-inter min-h-screen pb-24">
-      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-6 py-3 sticky top-0 z-50">
+      <header className="bg-zinc-950 border-b border-zinc-800 flex justify-between items-center w-full px-4 lg:px-6 py-3 sticky top-0 z-50">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-zinc-950 text-xl font-bold">shield</span>
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg bg-amber-400 flex items-center justify-center">
+            <span className="material-symbols-outlined text-zinc-950 text-lg lg:text-xl font-bold">shield</span>
           </div>
-          <h1 className="text-amber-400 font-black tracking-tighter text-2xl uppercase">GEARGUARD AI</h1>
+          <h1 className="text-amber-400 font-black tracking-tighter text-xl lg:text-2xl uppercase">GEARGUARD AI</h1>
         </div>
         <div className="flex items-center gap-2">
           <span className="uppercase tracking-widest text-[10px] font-bold text-zinc-500">{historyData?.length || 0} Records</span>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-8">
-        <div className="flex justify-between items-end mb-8">
+      <main className="max-w-5xl mx-auto px-4 lg:px-6 py-8">
+        <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 mb-8">
           <div>
-            <h2 className="text-3xl font-bold uppercase tracking-tight">Audit Archive</h2>
-            <p className="text-sm text-zinc-500 uppercase tracking-widest mt-1">Reviewing {historyData?.length || 0} recent scans</p>
+            <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-tight">Audit Archive</h2>
+            <p className="text-xs lg:text-sm text-zinc-500 uppercase tracking-widest mt-1">Reviewing {historyData?.length || 0} recent scans</p>
           </div>
           <div className="flex gap-2">
             {historyData?.length > 0 && (
-              <button onClick={onClearHistory} className="border border-red-500/30 text-red-400 px-4 py-2 text-[11px] font-bold tracking-widest rounded-xl hover:bg-red-500/10 transition-all uppercase">
+              <button onClick={onClearHistory} className="border border-red-500/30 text-red-400 px-4 py-2 text-[10px] lg:text-[11px] font-bold tracking-widest rounded-xl hover:bg-red-500/10 transition-all uppercase">
                 Clear All
               </button>
             )}
-            <button onClick={() => onNavigate('analyze')} className="bg-amber-400 text-zinc-950 px-6 py-2 text-[12px] font-bold tracking-widest rounded-xl hover:bg-amber-300 transition-all uppercase">
+            <button onClick={() => onNavigate('analyze')} className="bg-amber-400 text-zinc-950 px-4 lg:px-6 py-2 text-[11px] lg:text-[12px] font-bold tracking-widest rounded-xl hover:bg-amber-300 transition-all uppercase whitespace-nowrap">
               NEW SCAN
             </button>
           </div>
