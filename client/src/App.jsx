@@ -6,6 +6,7 @@ import AuditHistory from './components/AuditHistory';
 import AIChatPanel from './components/AIChatPanel';
 import MaintenancePlanner from './components/MaintenancePlanner';
 import KnowledgeBase from './components/KnowledgeBase';
+import DebuggerAgent from './components/DebuggerAgent';
 
 
 const App = () => {
@@ -86,6 +87,8 @@ const App = () => {
         />;
       case 'knowledge':
         return <KnowledgeBase onNavigate={handleNavigate} showToast={showToast} />;
+      case 'debugger':
+        return <DebuggerAgent onNavigate={handleNavigate} showToast={showToast} />;
       default:
         return <Dashboard onNavigate={handleNavigate} historyData={history} />;
     }

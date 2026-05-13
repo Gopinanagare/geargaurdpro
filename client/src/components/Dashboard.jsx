@@ -32,27 +32,48 @@ const Dashboard = ({ onNavigate, historyData = [] }) => {
       </header>
 
       <main className="flex-1 p-4 max-w-7xl mx-auto w-full overflow-y-auto lg:overflow-hidden flex flex-col gap-4 pb-24 lg:pb-4">
-        {/* Primary Action: New Scan (Large & Intuitive) */}
-        <section 
-          onClick={() => onNavigate('analyze')} 
-          className="bg-amber-400 border border-amber-500 p-6 lg:p-8 rounded-3xl flex flex-col justify-center items-center text-center group cursor-pointer active:scale-[0.98] transition-all hover:shadow-[0_0_40px_rgba(251,191,36,0.3)] flex-shrink-0 relative overflow-hidden"
-        >
-          {/* Subtle background animation or icon */}
-          <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity hidden lg:block">
-            <span className="material-symbols-outlined text-zinc-950 text-[120px]">analytics</span>
-          </div>
-          
-          <div className="relative z-10">
-            <span className="material-symbols-outlined text-zinc-950 text-5xl lg:text-6xl mb-3 lg:mb-4 group-hover:scale-110 transition-transform">add_circle</span>
-            <h3 className="text-2xl lg:text-3xl font-black text-zinc-950 mb-2 uppercase tracking-tighter">START NEW AUDIT SCAN</h3>
-            <p className="text-zinc-900/70 font-bold uppercase tracking-widest text-[10px] lg:text-xs max-w-lg mx-auto">
-              Ready to verify system safety? Upload your schematic and logic for an instant AI-powered compliance check.
-            </p>
-            <div className="mt-6 lg:mt-8 px-8 lg:px-10 py-3 bg-zinc-950 text-amber-400 rounded-full text-[10px] lg:text-xs font-black tracking-[0.2em] group-hover:bg-zinc-900 transition-colors uppercase shadow-xl">
-              LAUNCH ANALYZER
+        {/* Primary Actions: Two Hero Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-shrink-0">
+          {/* Audit Scan */}
+          <section 
+            onClick={() => onNavigate('analyze')} 
+            className="bg-amber-400 border border-amber-500 p-5 lg:p-6 rounded-3xl flex flex-col justify-center items-center text-center group cursor-pointer active:scale-[0.98] transition-all hover:shadow-[0_0_40px_rgba(251,191,36,0.3)] relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity hidden lg:block">
+              <span className="material-symbols-outlined text-zinc-950 text-[80px]">analytics</span>
             </div>
-          </div>
-        </section>
+            <div className="relative z-10">
+              <span className="material-symbols-outlined text-zinc-950 text-4xl lg:text-5xl mb-2 group-hover:scale-110 transition-transform">add_circle</span>
+              <h3 className="text-xl lg:text-2xl font-black text-zinc-950 mb-1 uppercase tracking-tighter">START NEW AUDIT</h3>
+              <p className="text-zinc-900/70 font-bold uppercase tracking-widest text-[9px] lg:text-[10px] max-w-sm mx-auto">
+                Upload schematic for AI-powered safety compliance check.
+              </p>
+              <div className="mt-4 lg:mt-5 px-6 lg:px-8 py-2.5 bg-zinc-950 text-amber-400 rounded-full text-[9px] lg:text-[10px] font-black tracking-[0.2em] group-hover:bg-zinc-900 transition-colors uppercase shadow-xl">
+                LAUNCH ANALYZER
+              </div>
+            </div>
+          </section>
+
+          {/* Debugger Agent */}
+          <section 
+            onClick={() => onNavigate('debugger')} 
+            className="bg-red-500 border border-red-600 p-5 lg:p-6 rounded-3xl flex flex-col justify-center items-center text-center group cursor-pointer active:scale-[0.98] transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.3)] relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity hidden lg:block">
+              <span className="material-symbols-outlined text-white text-[80px]">bug_report</span>
+            </div>
+            <div className="relative z-10">
+              <span className="material-symbols-outlined text-white text-4xl lg:text-5xl mb-2 group-hover:scale-110 transition-transform">troubleshoot</span>
+              <h3 className="text-xl lg:text-2xl font-black text-white mb-1 uppercase tracking-tighter">LIVE DEBUGGER</h3>
+              <p className="text-white/70 font-bold uppercase tracking-widest text-[9px] lg:text-[10px] max-w-sm mx-auto">
+                Describe any fault. AI diagnoses it step by step.
+              </p>
+              <div className="mt-4 lg:mt-5 px-6 lg:px-8 py-2.5 bg-white text-red-600 rounded-full text-[9px] lg:text-[10px] font-black tracking-[0.2em] group-hover:bg-zinc-100 transition-colors uppercase shadow-xl">
+                START DIAGNOSIS
+              </div>
+            </div>
+          </section>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 lg:overflow-hidden lg:min-h-0">
           {/* Global Safety Health Score (Condensed) */}

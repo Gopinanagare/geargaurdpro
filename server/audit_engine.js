@@ -274,6 +274,65 @@ app.post('/api/maintenance', async (req, res) => {
     } catch (error) { res.status(500).json({ error: error.message }); }
 });
 
+// Debugger Agent (Gemini Powered - Interactive Troubleshooting)
+app.post('/api/debugger', async (req, res) => {
+    try {
+        const { problem, image, conversation } = req.body;
+        if (!problem) throw new Error("No problem description provided.");
+
+        const history = (conversation || []).map(m => `${m.role}: ${m.text}`).join('\n');
+
+        const prompt = `${SYSTEM_CORE_PROMPT}
+You are a LIVE TROUBLESHOOTING AGENT for industrial equipment.
+
+PROBLEM REPORTED: "${problem}"
+
+${history ? `CONVERSATION SO FAR:\n${history}\n` : ''}
+
+YOUR TASK:
+${conversation?.length > 0 ? 'Based on the answers given, narrow down the diagnosis further.' : 'Start the diagnostic process.'}
+
+RESPOND IN THIS EXACT JSON FORMAT ONLY:
+{
+  "diagnosis_stage": "investigating" | "narrowing" | "resolved",
+  "confidence": number (0-100),
+  "current_assessment": "One sentence summary of what you think the problem is right now",
+  "questions": [
+    {"id": 1, "question": "Specific yes/no diagnostic question?", "why": "Why this question matters"}
+  ],
+  "possible_causes": [
+    {"cause": "string", "probability": "HIGH" | "MEDIUM" | "LOW", "explanation": "string"}
+  ],
+  "fix": null or {"title": "string", "steps": ["Step 1...", "Step 2..."], "parts_needed": ["string"], "estimated_time": "string", "safety_warning": "string"}
+}
+
+RULES:
+- Ask 2-3 targeted yes/no questions per round to narrow down the fault.
+- If you have enough information (confidence > 80), set diagnosis_stage to "resolved" and provide the full fix.
+- Always list possible causes ranked by probability.
+- If an image is provided, analyze it for visual clues (burn marks, discoloration, loose wires).
+- Be specific: reference actual component designators and wire colors when possible.`;
+
+        const raw = await callGemini(prompt, image || null);
+        let cleanText = raw.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
+        let parsed = safeParseJSON(cleanText);
+        
+        if (!parsed) {
+            const match = cleanText.match(/\{[\s\S]*\}/);
+            if (match) parsed = safeParseJSON(match[0]);
+        }
+
+        res.json(parsed || {
+            diagnosis_stage: "investigating",
+            confidence: 10,
+            current_assessment: "Need more information to diagnose.",
+            questions: [{ id: 1, question: "Can you describe the symptoms in more detail?", why: "Initial assessment" }],
+            possible_causes: [],
+            fix: null
+        });
+    } catch (error) { res.status(500).json({ error: error.message }); }
+});
+
 // Chat Endpoint (Gemini Powered)
 app.post('/api/chat', async (req, res) => {
     try {
