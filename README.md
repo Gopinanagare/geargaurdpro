@@ -1,92 +1,112 @@
-# 🛡️ GearGuard AI — Hyper-Forensic Audit Engine
-### *The Zero-Trust Standard for Industrial Safety & Logic Verification*
+# GearGuard AI 🛡️
+### AI-Powered Industrial Safety & Diagnostic Ecosystem
 
-**GearGuard AI** is a state-of-the-art, AI-powered forensic audit platform designed to eliminate failure points in industrial control systems. By combining deep-pixel computer vision with Gemini Multimodal Ensemble logic, it provides a "Digital Twin" audit experience that exceeds human capability in both speed and recall.
+GearGuard AI is a state-of-the-art platform designed to revolutionize industrial safety and maintenance. By leveraging the **Google Gemini 1.5 Pro/Flash API**, it transforms static circuit schematics and machine data into actionable engineering intelligence.
 
----
+## 🚀 Key Features
 
-## 🏛️ System Architecture
-GearGuard AI is built on a **High-Precision Multimodal Ensemble Pipeline**:
-1. **Vision Layer**: Neural pixel scanning of hardware schematics vs. PCB layouts.
-2. **Logic Layer**: Advanced timing analysis (RC+BJT 0.7V threshold) and functional synthesis.
-3. **Audit Layer**: Semantic deduplication and cross-verification against international standards (ISO, IEC, UL).
-4. **Advisory Layer**: Targeted predictive maintenance planning and real-time AI Chat.
+### 1. 🔍 Safety Audit Agent (Scan New Audit)
+Analyze circuit schematics against global standards (ISO 13849, IEC 61508, etc.) in seconds.
+*   **Visual Analysis:** Upload schematic images for instant anomaly detection.
+*   **Safety Health Score:** Real-time metrics on your system's compliance level.
+*   **Remediation Engine:** Provides specific, technical steps to fix identified risks.
 
----
+### 2. 🪲 Live Debugger Agent (Troubleshooting)
+An interactive "Live" agent that diagnoses machine faults through conversational logic.
+*   **Diagnostic Tree:** AI asks targeted yes/no questions based on the symptoms you describe.
+*   **Confidence Meter:** Visual tracking of how close the AI is to the solution.
+*   **Full Repair Guide:** Get step-by-step instructions, parts lists, and safety warnings.
 
-## 🚀 Recent UI Optimizations (v12.1)
+### 3. 📅 Smart Maintenance Planner
+Automatically converts audit risks into a prioritized maintenance schedule.
+*   **Predictive Scheduling:** Prevents failures by planning repairs before they become critical.
+*   **Task Prioritization:** Focuses your team on high-risk components first.
 
-### 🖥️ Zero-Scroll Command Center
-The entire application has been re-engineered for **One-Screen Visibility**. All critical data, inputs, and controls are now visible within a single viewport on desktop, eliminating the need for vertical scrolling and ensuring "Command Center" efficiency.
+### 4. 📚 Engineering Knowledge Base
+Instant access to complex engineering standards and technical documentation.
+*   **AI Search:** Ask any technical question and get precise, standard-compliant answers.
 
-### 📱 Full Mobile Responsiveness
-- **Adaptive Layouts**: Seamless transition from desktop split-views to mobile vertical stacks.
-- **Touch-Optimized Controls**: Increased hit areas and simplified navigation for tablet and mobile users.
-- **Responsive Gauges**: Health scores and telemetry data resize dynamically for all screen sizes.
-
-### 🔍 Ultra-Compact Analyzer
-- **Dual-Column Compliance**: Streamlined standard selection for rapid workflow.
-*   **Space-Efficient Inputs**: Reduced footprint for image uploads and logic specifications.
-- **Fixed Action Bar**: "Initiate Audit" button is always pinned and ready.
-
-### 📊 Intuitive Dashboard
-- **Priority Hero Action**: Large, high-contrast "START NEW AUDIT" section for immediate onboarding.
-- **Condensed Health Gauge**: Real-time global safety score in a space-optimized card.
-- **Clean Activity Feed**: Displaying the 2 most recent audits for focus, with a deep archive for history.
+### 5. 🗄️ Audit Archive
+Persistent storage of all historical audits to track safety improvements over time.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technical Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 19, Vite 8, TailwindCSS 4 |
-| Backend | Node.js, Express 5 |
-| AI Engine | Google Gemini 1.5 Flash (Ensemble Architecture) |
-| Storage | LocalStorage (client-side persistence) |
-| Voice | Web Speech API |
-| Logic | Semantic Sanitization Pipeline v11.5 |
+*   **Frontend:** React, Vite, Vanilla CSS + Tailwind, Google Material Symbols.
+*   **Backend:** Node.js, Express.
+*   **AI Engine:** Google Gemini 1.5 Flash & Pro.
+*   **Architecture:** Modular agent-based design.
 
 ---
 
-## 🚦 Getting Started
+## ⚙️ Setup & Installation
 
-### 1. Clone the repository
+### Prerequisites
+*   Node.js (v18+)
+*   A Google Gemini API Key ([Get one here](https://aistudio.google.com/))
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/Gopinanagare/geargaurdpro.git
 cd geargaurdpro
 ```
 
-### 2. Setup Backend
+### 2. Backend Setup
 ```bash
 cd server
 npm install
-# Create a .env file with: GEMINI_API_KEY=your_key_here
-node audit_engine.js
+```
+Create a `.env` file in the `server` folder:
+```env
+GEMINI_API_KEY=your_api_key_here
 ```
 
-### 3. Setup Frontend
+### 3. Frontend Setup
 ```bash
 cd ../client
 npm install
-npm run dev
 ```
 
----
-
-## 🛡️ Safety First
-
-This tool is designed to augment professional engineering audits. Always ensure a qualified safety engineer reviews the generated reports for mission-critical deployments.
-
----
-
-## 📄 License
-MIT License - Copyright (c) 2026 GearGuard Team
- Safety First
-
-This tool is designed to augment professional engineering audits. Always ensure a qualified safety engineer reviews the generated reports for mission-critical deployments.
+### 4. Run the Platform
+**In the server terminal:**
+```bash
+node audit_engine.js
+```
+**In the client terminal:**
+```bash
+npm run dev
+```
+Open `http://localhost:5173` to launch GearGuard.
 
 ---
 
-## 📄 License
-MIT License - Copyright (c) 2026 GearGuard Team
+## 📤 How to Upload to GitHub
+
+1.  **Initialize Git** (if not already done):
+    ```bash
+    git init
+    ```
+2.  **Add your files**:
+    ```bash
+    git add .
+    ```
+3.  **Commit your changes**:
+    ```bash
+    git commit -m "feat: complete GearGuard AI platform with Debugger Agent"
+    ```
+4.  **Connect to your repo**:
+    ```bash
+    git remote add origin https://github.com/Gopinanagare/geargaurdpro.git
+    ```
+5.  **Push to GitHub**:
+    ```bash
+    git push -u origin main
+    ```
+
+---
+
+## 📜 License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+Developed with ❤️ for Advanced Industrial Safety.
