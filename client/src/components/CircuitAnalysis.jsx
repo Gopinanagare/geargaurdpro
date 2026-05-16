@@ -411,14 +411,18 @@ const CircuitAnalysis = ({ onNavigate, onAnalysisComplete }) => {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="flex-shrink-0 w-full grid grid-cols-3 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
+      <nav className="flex-shrink-0 w-full grid grid-cols-4 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
         <button onClick={() => onNavigate('dashboard')} className="flex flex-col items-center justify-center text-zinc-500 py-2.5 hover:text-amber-400 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">dashboard</span>
           <span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Dashboard</span>
         </button>
         <button onClick={() => onNavigate('analyze')} className="flex flex-col items-center justify-center text-amber-400 bg-amber-400/5 py-2.5 transition-all border-r border-zinc-800">
-          <span className="material-symbols-outlined text-lg">center_focus_weak</span>
-          <span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Analyze</span>
+          <span className="material-symbols-outlined text-lg">memory</span>
+          <span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Hardware</span>
+        </button>
+        <button onClick={() => onNavigate('code_audit')} className="flex flex-col items-center justify-center text-zinc-500 py-2.5 hover:text-cyan-400 transition-all border-r border-zinc-800">
+          <span className="material-symbols-outlined text-lg">code</span>
+          <span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Code</span>
         </button>
         <button onClick={() => onNavigate('history')} className="flex flex-col items-center justify-center text-zinc-500 py-2.5 hover:text-amber-400 transition-all">
           <span className="material-symbols-outlined text-lg">history</span>

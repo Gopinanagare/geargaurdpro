@@ -43,33 +43,33 @@ const Dashboard = ({ onNavigate, historyData = [] }) => {
               <span className="material-symbols-outlined text-zinc-950 text-[80px]">analytics</span>
             </div>
             <div className="relative z-10">
-              <span className="material-symbols-outlined text-zinc-950 text-4xl lg:text-5xl mb-2 group-hover:scale-110 transition-transform">add_circle</span>
-              <h3 className="text-xl lg:text-2xl font-black text-zinc-950 mb-1 uppercase tracking-tighter">START NEW AUDIT</h3>
+              <span className="material-symbols-outlined text-zinc-950 text-4xl lg:text-5xl mb-2 group-hover:scale-110 transition-transform">memory</span>
+              <h3 className="text-xl lg:text-2xl font-black text-zinc-950 mb-1 uppercase tracking-tighter">PCB & SCHEMATIC</h3>
               <p className="text-zinc-900/70 font-bold uppercase tracking-widest text-[9px] lg:text-[10px] max-w-sm mx-auto">
-                Upload schematic for AI-powered safety compliance check.
+                Upload hardware schematics for AI-powered forensic safety compliance.
               </p>
               <div className="mt-4 lg:mt-5 px-6 lg:px-8 py-2.5 bg-zinc-950 text-amber-400 rounded-full text-[9px] lg:text-[10px] font-black tracking-[0.2em] group-hover:bg-zinc-900 transition-colors uppercase shadow-xl">
-                LAUNCH ANALYZER
+                START HARDWARE AUDIT
               </div>
             </div>
           </section>
 
-          {/* Debugger Agent */}
+          {/* Code Auditor */}
           <section 
-            onClick={() => onNavigate('debugger')} 
-            className="bg-red-500 border border-red-600 p-5 lg:p-6 rounded-3xl flex flex-col justify-center items-center text-center group cursor-pointer active:scale-[0.98] transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.3)] relative overflow-hidden"
+            onClick={() => onNavigate('code_audit')} 
+            className="bg-cyan-500 border border-cyan-600 p-5 lg:p-6 rounded-3xl flex flex-col justify-center items-center text-center group cursor-pointer active:scale-[0.98] transition-all hover:shadow-[0_0_40px_rgba(34,211,238,0.3)] relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity hidden lg:block">
-              <span className="material-symbols-outlined text-white text-[80px]">bug_report</span>
+              <span className="material-symbols-outlined text-white text-[80px]">code</span>
             </div>
             <div className="relative z-10">
-              <span className="material-symbols-outlined text-white text-4xl lg:text-5xl mb-2 group-hover:scale-110 transition-transform">troubleshoot</span>
-              <h3 className="text-xl lg:text-2xl font-black text-white mb-1 uppercase tracking-tighter">LIVE DEBUGGER</h3>
+              <span className="material-symbols-outlined text-white text-4xl lg:text-5xl mb-2 group-hover:scale-110 transition-transform">terminal</span>
+              <h3 className="text-xl lg:text-2xl font-black text-white mb-1 uppercase tracking-tighter">CODEBASE AUDITOR</h3>
               <p className="text-white/70 font-bold uppercase tracking-widest text-[9px] lg:text-[10px] max-w-sm mx-auto">
-                Describe any fault. AI diagnoses it step by step.
+                Upload project zip. AI analyzes purpose, workflow & profit.
               </p>
-              <div className="mt-4 lg:mt-5 px-6 lg:px-8 py-2.5 bg-white text-red-600 rounded-full text-[9px] lg:text-[10px] font-black tracking-[0.2em] group-hover:bg-zinc-100 transition-colors uppercase shadow-xl">
-                START DIAGNOSIS
+              <div className="mt-4 lg:mt-5 px-6 lg:px-8 py-2.5 bg-white text-cyan-600 rounded-full text-[9px] lg:text-[10px] font-black tracking-[0.2em] group-hover:bg-zinc-100 transition-colors uppercase shadow-xl">
+                START CODE AUDIT
               </div>
             </div>
           </section>
@@ -150,12 +150,15 @@ const Dashboard = ({ onNavigate, historyData = [] }) => {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="flex-shrink-0 w-full grid grid-cols-3 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
+      <nav className="flex-shrink-0 w-full grid grid-cols-4 items-center bg-zinc-900/95 backdrop-blur-md pb-safe border-t border-zinc-800 z-50">
         <button onClick={() => onNavigate('dashboard')} className="flex flex-col items-center justify-center text-amber-400 bg-amber-400/5 py-2.5 transition-all border-r border-zinc-800">
           <span className="material-symbols-outlined text-lg">dashboard</span><span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Dashboard</span>
         </button>
         <button onClick={() => onNavigate('analyze')} className="flex flex-col items-center justify-center text-zinc-500 py-2.5 hover:text-amber-400 transition-all border-r border-zinc-800">
-          <span className="material-symbols-outlined text-lg">center_focus_weak</span><span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Analyze</span>
+          <span className="material-symbols-outlined text-lg">memory</span><span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Hardware</span>
+        </button>
+        <button onClick={() => onNavigate('code_audit')} className="flex flex-col items-center justify-center text-zinc-500 py-2.5 hover:text-cyan-400 transition-all border-r border-zinc-800">
+          <span className="material-symbols-outlined text-lg">code</span><span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Code</span>
         </button>
         <button onClick={() => onNavigate('history')} className="flex flex-col items-center justify-center text-zinc-500 py-2.5 hover:text-amber-400 transition-all">
           <span className="material-symbols-outlined text-lg">history</span><span className="text-[8px] uppercase font-semibold tracking-wider mt-0.5">Archive</span>

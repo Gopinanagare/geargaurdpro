@@ -3,6 +3,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
+const multer = require('multer');
+const AdmZip = require('adm-zip');
+
 dotenv.config();
 
 // Initialize Native Google Gemini SDK (v1 Stable)
@@ -11,6 +14,10 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY, { apiVersion: "
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '100mb' }));
+
+// Multer config for zip uploads
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 // ========================================================================
 // GEARGUARD PRO CORE INTELLIGENCE (v10.0 - Native Gemini Ensemble)
@@ -274,63 +281,77 @@ app.post('/api/maintenance', async (req, res) => {
     } catch (error) { res.status(500).json({ error: error.message }); }
 });
 
-// Debugger Agent (Gemini Powered - Interactive Troubleshooting)
-app.post('/api/debugger', async (req, res) => {
+// Code Auditor Endpoint
+app.post('/api/code-audit', upload.single('projectZip'), async (req, res) => {
     try {
-        const { problem, image, conversation } = req.body;
-        if (!problem) throw new Error("No problem description provided.");
+        if (!req.file) throw new Error("No zip file uploaded.");
 
-        const history = (conversation || []).map(m => `${m.role}: ${m.text}`).join('\n');
-
-        const prompt = `${SYSTEM_CORE_PROMPT}
-You are a LIVE TROUBLESHOOTING AGENT for industrial equipment.
-
-PROBLEM REPORTED: "${problem}"
-
-${history ? `CONVERSATION SO FAR:\n${history}\n` : ''}
-
-YOUR TASK:
-${conversation?.length > 0 ? 'Based on the answers given, narrow down the diagnosis further.' : 'Start the diagnostic process.'}
-
-RESPOND IN THIS EXACT JSON FORMAT ONLY:
-{
-  "diagnosis_stage": "investigating" | "narrowing" | "resolved",
-  "confidence": number (0-100),
-  "current_assessment": "One sentence summary of what you think the problem is right now",
-  "questions": [
-    {"id": 1, "question": "Specific yes/no diagnostic question?", "why": "Why this question matters"}
-  ],
-  "possible_causes": [
-    {"cause": "string", "probability": "HIGH" | "MEDIUM" | "LOW", "explanation": "string"}
-  ],
-  "fix": null or {"title": "string", "steps": ["Step 1...", "Step 2..."], "parts_needed": ["string"], "estimated_time": "string", "safety_warning": "string"}
-}
-
-RULES:
-- Ask 2-3 targeted yes/no questions per round to narrow down the fault.
-- If you have enough information (confidence > 80), set diagnosis_stage to "resolved" and provide the full fix.
-- Always list possible causes ranked by probability.
-- If an image is provided, analyze it for visual clues (burn marks, discoloration, loose wires).
-- Be specific: reference actual component designators and wire colors when possible.`;
-
-        const raw = await callGemini(prompt, image || null);
-        let cleanText = raw.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
-        let parsed = safeParseJSON(cleanText);
+        const zip = new AdmZip(req.file.buffer);
+        const zipEntries = zip.getEntries();
         
+        let fileStructure = [];
+        let contentSample = "";
+        let totalFiles = zipEntries.length;
+
+        // Extract a summary of the project structure and some content
+        zipEntries.slice(0, 50).forEach((entry) => {
+            fileStructure.push(entry.entryName);
+            // Grab content of small text files to help Gemini understand
+            if (!entry.isDirectory && entry.entryName.match(/\.(js|jsx|py|java|cpp|c|h|html|css|json|md|txt)$/i) && contentSample.length < 15000) {
+                contentSample += `\n--- File: ${entry.entryName} ---\n${entry.getData().toString('utf8').substring(0, 1000)}\n`;
+            }
+        });
+
+        const codePrompt = `
+        TASK: Perform a deep Forensic Codebase Analysis on the provided project.
+        
+        PROJECT STRUCTURE SUMMARY:
+        Total Files: ${totalFiles}
+        Files Sample: ${fileStructure.join(', ')}
+        
+        CODE SAMPLES:
+        ${contentSample}
+        
+        CRITICAL: Provide a detailed analysis in the following JSON format ONLY:
+        {
+          "project_name": "string",
+          "primary_language": "string",
+          "architecture_type": "string",
+          "purpose": "What is this project and what problem does it solve?",
+          "workflow": "How does the system work step-by-step?",
+          "business_opportunity": {
+            "market_fit": "string",
+            "earning_potential": "string",
+            "profit_model": "string",
+            "estimated_valuation": "string"
+          },
+          "tech_stack": ["string"],
+          "suggestions": ["string"]
+        }
+        
+        RULES:
+        - Be professional and insightful.
+        - Analyze the business potential realistically.
+        - If the code looks like a specific framework (e.g., React, Django), identify it.
+        `;
+
+        const raw = await callGemini(codePrompt);
+        let parsed = safeParseJSON(raw);
+
         if (!parsed) {
-            const match = cleanText.match(/\{[\s\S]*\}/);
-            if (match) parsed = safeParseJSON(match[0]);
+            // Fallback if Gemini fails to output clean JSON
+            parsed = {
+                project_name: "Unknown Project",
+                purpose: "Analysis failed to parse structure.",
+                business_opportunity: { earning_potential: "Unknown" }
+            };
         }
 
-        res.json(parsed || {
-            diagnosis_stage: "investigating",
-            confidence: 10,
-            current_assessment: "Need more information to diagnose.",
-            questions: [{ id: 1, question: "Can you describe the symptoms in more detail?", why: "Initial assessment" }],
-            possible_causes: [],
-            fix: null
-        });
-    } catch (error) { res.status(500).json({ error: error.message }); }
+        res.json(parsed);
+    } catch (error) {
+        console.error("Code Audit Fail:", error.message);
+        res.status(500).json({ error: error.message });
+    }
 });
 
 // Chat Endpoint (Gemini Powered)

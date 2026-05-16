@@ -1,21 +1,20 @@
 # GearGuard PRO 🛡️
-### AI-Powered Industrial Safety & Diagnostic Ecosystem
+### AI-Powered Forensic Industrial Audit & Codebase Ecosystem
 
-GearGuard PRO is a state-of-the-art platform designed to revolutionize industrial safety and maintenance. By leveraging the **Google Gemini 1.5 Pro/Flash API**, it transforms static circuit schematics and machine data into actionable engineering intelligence.
+GearGuard PRO is a state-of-the-art platform designed to revolutionize industrial safety and project analysis. By leveraging the **Google Gemini 1.5 Pro/Flash API**, it transforms hardware schematics and project codebases into actionable engineering and business intelligence.
 
 ## 🚀 Key Features
 
-### 1. 🔍 Safety Audit Agent (Scan New Audit)
-Analyze circuit schematics against global standards (ISO 13849, IEC 61508, etc.) in seconds.
-*   **Visual Analysis:** Upload schematic images for instant anomaly detection.
+### 1. 🔍 PCB & Schematic Auditor
+Analyze hardware schematics and PCB layouts against global safety standards (ISO 13849, IEC 61508, etc.) in seconds.
+*   **Forensic Vision:** Upload schematic images for instant anomaly detection and trace analysis.
 *   **Safety Health Score:** Real-time metrics on your system's compliance level.
-*   **Remediation Engine:** Provides specific, technical steps to fix identified risks.
+*   **Remediation Engine:** Provides specific, technical steps to fix identified hardware risks.
 
-### 2. 🪲 Live Debugger Agent (Troubleshooting)
-An interactive "Live" agent that diagnoses machine faults through conversational logic.
-*   **Diagnostic Tree:** AI asks targeted yes/no questions based on the symptoms you describe.
-*   **Confidence Meter:** Visual tracking of how close the AI is to the solution.
-*   **Full Repair Guide:** Get step-by-step instructions, parts lists, and safety warnings.
+### 2. 💻 Codebase Auditor (New)
+A deep-learning forensic engine that analyzes entire software projects from a `.zip` upload.
+*   **Architecture Mapping:** Identifies languages, frameworks, and system workflows automatically.
+*   **Business Intelligence:** Analyzes market fit, earning potential, and profit models for your software.
 
 ### 3. 📅 Smart Maintenance Planner
 Automatically converts audit risks into a prioritized maintenance schedule.
@@ -34,9 +33,9 @@ Persistent storage of all historical audits to track safety improvements over ti
 ## 🛠️ Technical Stack
 
 *   **Frontend:** React, Vite, Vanilla CSS + Tailwind, Google Material Symbols.
-*   **Backend:** Node.js, Express.
+*   **Backend:** Node.js, Express, Multer (File Ingestion), Adm-Zip (Archive Processing).
 *   **AI Engine:** Google Gemini 1.5 Flash & Pro.
-*   **Architecture:** Modular agent-based design.
+*   **Architecture:** Modular agent-based forensic design.
 
 ---
 
@@ -81,27 +80,21 @@ Open `http://localhost:5173` to launch GearGuard PRO.
 
 ---
 
-## 📤 How to Upload to GitHub
+## 📤 Pushing to GitHub
 
-1.  **Initialize Git** (if not already done):
-    ```bash
-    git init
-    ```
-2.  **Add your files**:
+To update your repository with the latest Forensic Auditor features:
+
+1.  **Stage all changes**:
     ```bash
     git add .
     ```
-3.  **Commit your changes**:
+2.  **Commit the forensic upgrade**:
     ```bash
-    git commit -m "feat: complete GearGuard PRO platform with Debugger Agent"
+    git commit -m "feat: implement Codebase Auditor and Forensic Hardware Audit"
     ```
-4.  **Connect to your repo**:
+3.  **Push to main**:
     ```bash
-    git remote add origin https://github.com/Gopinanagare/geargaurdpro.git
-    ```
-5.  **Push to GitHub**:
-    ```bash
-    git push -u origin main
+    git push origin main
     ```
 
 ---
@@ -109,4 +102,4 @@ Open `http://localhost:5173` to launch GearGuard PRO.
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for more information.
 
-Developed with ❤️ for Advanced Industrial Safety.
+Developed with ❤️ for Advanced Industrial Safety and Project Analysis.
