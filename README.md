@@ -1,7 +1,7 @@
 # GearGuard PRO 🛡️
 ### AI-Powered Forensic Industrial Audit & Codebase Ecosystem
 
-GearGuard PRO is a state-of-the-art platform designed to revolutionize industrial safety and project analysis. By leveraging the **Google Gemini 1.5 Pro/Flash API**, it transforms hardware schematics and project codebases into actionable engineering and business intelligence.
+GearGuard PRO is a state-of-the-art platform designed to revolutionize industrial safety and project analysis. By leveraging the **Google Gemini 2.5 Pro/Flash API**, it transforms hardware schematics and project codebases into actionable engineering and business intelligence.
 
 ## 🚀 Key Features
 
@@ -34,7 +34,7 @@ Persistent storage of all historical audits to track safety improvements over ti
 
 *   **Frontend:** React, Vite, Vanilla CSS + Tailwind, Google Material Symbols.
 *   **Backend:** Node.js, Express, Multer (File Ingestion), Adm-Zip (Archive Processing).
-*   **AI Engine:** Google Gemini 1.5 Flash & Pro.
+*   **AI Engine:** Google Gemini 2.5 Flash & Pro.
 *   **Architecture:** Modular agent-based forensic design.
 
 ---

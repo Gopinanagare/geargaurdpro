@@ -8,7 +8,7 @@ async function listModels() {
         // In some SDK versions, listModels is not directly exposed or has a different path.
         // We can check the model availability by trying a simple generation with a fallback list.
         console.log("Checking model availability...");
-        const models = ['gemini-1.5-flash', 'gemini-1.5-flash-8b', 'gemini-1.5-pro', 'gemini-pro', 'gemini-pro-vision'];
+        const models = ['gemini-2.5-flash', 'gemini-2.5-pro', 'gemini-1.5-flash', 'gemini-1.5-pro'];
         
         for (const m of models) {
             try {

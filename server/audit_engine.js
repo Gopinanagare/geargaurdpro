@@ -61,7 +61,7 @@ You are an International Senior EDA Forensic Analyst powered by Google Gemini 2.
 // GEMINI INTELLIGENCE LAYER
 // ========================================================================
 
-async function callGemini(prompt, imageBase64 = null, modelName = "gemini-flash-latest") {
+async function callGemini(prompt, imageBase64 = null, modelName = "gemini-2.5-pro") {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) throw new Error("GEMINI_API_KEY Missing in .env");
 
@@ -198,7 +198,7 @@ app.post('/api/audit', async (req, res) => {
             status: finalStatus,
             risk_score: rs,
             compliance_standard: classification.standard,
-            compliance_report: `Native Gemini 1.5 Ensemble Audit complete. Reliability Status: ${mtbfData.risk_level}.`,
+            compliance_report: `Native Gemini 2.5 Pro Ensemble Audit complete. Reliability Status: ${mtbfData.risk_level}.`,
             functional_analysis: `System Analysis: ${classification.type}. Blocks: ${classification.blocks?.join(', ') || 'General'}.`,
             certification_id: `GEMINI-HYPER-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
             predictive_mtbf: { hours: mtbfData.mtbf_hours, risk_level: mtbfData.risk_level },
